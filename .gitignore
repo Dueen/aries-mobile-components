@@ -2,5 +2,7 @@ node_modules
 yarn.lock
 yarn-error.log
 .DS_Store
-.expo
-.expo-shared
+packages/demo/.expo
+packages/demo/.expo-shared
+packages/demo/ios
+packages/demo/android
