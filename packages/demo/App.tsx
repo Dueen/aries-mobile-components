@@ -1,13 +1,17 @@
-import { StyleSheet, Text, View } from "react-native"
-import { useKeychain } from "./packages/keychain"
+import { useState } from "react"
+import { Button, StyleSheet, View } from "react-native"
+import { QrScanner } from "./packages/qrscanner"
 
 const App = () => {
-  const keychain = useKeychain("mock-service")
-  keychain.storeAgentKey("foop").then((f) => console.log(f))
-  keychain.getAgentKey().then((f) => console.log(f))
+  const [shouldShowCamera, setShouldShowCamera] = useState(false)
+
+  const onCancel = () => setShouldShowCamera(false)
+  const onScan = console.log
+
   return (
     <View style={styles.container}>
-      <Text>hello</Text>
+      {!shouldShowCamera && <Button title="Show camera" onPress={() => setShouldShowCamera(true)} />}
+      {shouldShowCamera && <QrScanner onScan={onScan} onCancel={onCancel} cancelText="cancel" headerText="Header" />}
     </View>
   )
 }
