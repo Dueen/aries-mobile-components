@@ -18,7 +18,10 @@ export class Keychain {
     accessible = RNKeychain.ACCESSIBLE.WHEN_UNLOCKED,
   }: KeychainProps) {
     this.service = service
-    this.options = { service, accessControl, securityLevel, storage, rules, authenticationType, accessible }
+    // this.options = { service, accessControl, securityLevel, storage, rules, authenticationType, accessible }
+    // TODO: AccessControl breaks it
+    // - related issue: https://github.com/oblador/react-native-keychain/issues/509
+    this.options = { service, securityLevel, storage, rules, authenticationType, accessible }
   }
 
   public storeAgentKey(key: string) {
