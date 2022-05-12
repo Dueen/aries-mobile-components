@@ -3,13 +3,15 @@ import type { BarCodeScanningResult } from "expo-camera"
 import BarcodeMask from "react-native-barcode-mask"
 
 import { Camera } from "./Camera"
-import { Pressable, View, Text, StyleSheet } from "react-native"
+import { Pressable, View, Text, StyleSheet, StyleProp, TextStyle } from "react-native"
 
 type QrScannerOptions = {
   onScan: (result: string) => void
   onCancel: () => void
   cancelText?: string
   headerText?: string
+  headerStyle?: StyleProp<TextStyle>
+  cancelStyle?: StyleProp<TextStyle>
 }
 
 export const QrScanner: React.FunctionComponent<QrScannerOptions> = ({
@@ -17,6 +19,8 @@ export const QrScanner: React.FunctionComponent<QrScannerOptions> = ({
   onCancel,
   cancelText = "cancel",
   headerText,
+  cancelStyle,
+  headerStyle,
 }) => {
   const onBarCodeScanned = (event: BarCodeScanningResult) => onScan(event.data)
 
@@ -25,12 +29,12 @@ export const QrScanner: React.FunctionComponent<QrScannerOptions> = ({
       <BarcodeMask showAnimatedLine={false} edgeBorderWidth={0} height={280} />
       <View style={styles.container}>
         <View style={styles.headerContainer}>
-          <Text>{headerText}</Text>
+          <Text style={headerStyle ?? styles.header}>{headerText}</Text>
         </View>
         <View style={styles.spacer} />
         <View style={styles.backContainer}>
           <Pressable onPress={onCancel}>
-            <Text>{cancelText}</Text>
+            <Text style={cancelStyle ?? styles.cancel}>{cancelText}</Text>
           </Pressable>
         </View>
       </View>
@@ -44,9 +48,14 @@ const styles = StyleSheet.create({
     flexDirection: "column",
   },
   headerContainer: {
-    flex: 1,
+    flex: 2,
     alignItems: "center",
     justifyContent: "center",
+  },
+  header: {
+    fontSize: 24,
+    fontWeight: "bold",
+    color: "white",
   },
   spacer: {
     flex: 3,
@@ -55,5 +64,9 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "flex-start",
     alignItems: "center",
+  },
+  cancel: {
+    fontSize: 18,
+    color: "white",
   },
 })

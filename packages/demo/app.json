@@ -17,7 +17,7 @@
     "assetBundlePatterns": ["**/*"],
     "ios": {
       "supportsTablet": true,
-      "bundleIdentifier": "com.beri.demo",
+      "bundleIdentifier": "com.blu3beri.demo",
       "infoPlist": {
         "NSCameraUsageDescription": "For demo purposes",
         "NSFaceIDUsageDescription": "For demo purposes"

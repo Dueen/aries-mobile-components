@@ -1,6 +1,6 @@
 import React, { FC, useState } from "react"
 import { Text, Button, StyleSheet, View } from "react-native"
-import { KeychainProvider, useKeychain } from "./packages/keychain/KeychainContext"
+import { KeychainProvider } from "./packages/keychain/KeychainContext"
 import { QrScanner } from "./packages/qrscanner"
 
 const App = () => {
@@ -14,23 +14,9 @@ const App = () => {
       <View style={styles.container}>
         {!shouldShowCamera && <Button title="Show camera" onPress={() => setShouldShowCamera(true)} />}
         {shouldShowCamera && <QrScanner onScan={onScan} onCancel={onCancel} cancelText="cancel" headerText="Header" />}
-        <Demo />
       </View>
     </KeychainProvider>
   )
-}
-
-const Demo: FC = () => {
-  const keychain = useKeychain()
-  keychain
-    .storeAgentKey("foop")
-    .then((e) => console.log(e))
-    .catch((e) => console.error(e))
-  keychain
-    .getAgentKey()
-    .then((e) => console.log(e))
-    .catch((e) => console.error(e))
-  return <Text>demo</Text>
 }
 
 const styles = StyleSheet.create({
