@@ -1,8 +1,4 @@
+import { useCallback } from "react"
 import { Keychain } from "./Keychain"
 
-let keychain: Keychain
-
-export const useKeychain = (service?: string) => {
-  keychain = service ? new Keychain({ service }) : keychain
-  return keychain
-}
+export const useKeychain = (service: string) => useCallback(() => new Keychain({ service }), [service])

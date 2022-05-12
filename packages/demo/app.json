@@ -14,14 +14,13 @@
     "updates": {
       "fallbackToCacheTimeout": 0
     },
-    "assetBundlePatterns": [
-      "**/*"
-    ],
+    "assetBundlePatterns": ["**/*"],
     "ios": {
       "supportsTablet": true,
-      "bundleIdentifier": "demo",
+      "bundleIdentifier": "com.beri.demo",
       "infoPlist": {
-        "NSCameraUsageDescription": "For demo purposes"
+        "NSCameraUsageDescription": "For demo purposes",
+        "NSFaceIDUsageDescription": "For demo purposes"
       }
     },
     "android": {
