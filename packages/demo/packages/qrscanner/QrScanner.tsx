@@ -14,6 +14,23 @@ type QrScannerOptions = {
   cancelStyle?: StyleProp<TextStyle>
 }
 
+/**
+ * A simple QrScanner that can be used for out-of-band invitations
+ *
+ * @todo check design in android
+ *
+ * @remarks
+ * It simply returns whatever is being scanned inside the `onScan` callback
+ * There is no parsing or validation happening
+ *
+ * @param onScan - Callback that receives a string of the scanned data
+ * @param onCancel - Callback that will be called when the `cancel` button is pressed
+ * @param cancelText - Displayed text in the cancel button
+ * @param headerText - Text displayed at the top of the QrScanner
+ * @param cancelStyle - Custom styling for the text inside the cancel button
+ * @param headerStyle - Custom styling for the header text
+ *
+ */
 export const QrScanner: React.FunctionComponent<QrScannerOptions> = ({
   onScan,
   onCancel,
