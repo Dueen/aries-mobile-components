@@ -1,2 +1,2 @@
 export * from "./Keychain"
-export * from "./useKeychain"
+export * from "./KeychainContext"

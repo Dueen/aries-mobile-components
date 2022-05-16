@@ -14,12 +14,10 @@
     "updates": {
       "fallbackToCacheTimeout": 0
     },
-    "assetBundlePatterns": [
-      "**/*"
-    ],
+    "assetBundlePatterns": ["**/*"],
     "ios": {
       "supportsTablet": true,
-      "bundleIdentifier": "com.beri.demo",
+      "bundleIdentifier": "com.blu3beri2.demo",
       "infoPlist": {
         "NSCameraUsageDescription": "For demo purposes",
         "NSFaceIDUsageDescription": "For demo purposes"
@@ -30,7 +28,7 @@
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#FFFFFF"
       },
-      "package": "com.blu3beri.demo"
+      "package": "com.blu3beri2.demo"
     },
     "web": {
       "favicon": "./assets/favicon.png"
