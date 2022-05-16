@@ -1,7 +1,7 @@
 {
   "name": "@animo-id/react-native-keychain",
   "version": "0.0.0",
-  "main": "index.ts",
+  "main": "src/index.ts",
   "license": "MIT",
   "dependencies": {
     "react-native-get-random-values": "^1.8.0",

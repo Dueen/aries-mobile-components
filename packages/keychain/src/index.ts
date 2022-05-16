@@ -1,4 +1,4 @@
 import "react-native-get-random-values"
 
 export * from "./Keychain"
-export * from "./KeychainContext"
+export * from "./components"

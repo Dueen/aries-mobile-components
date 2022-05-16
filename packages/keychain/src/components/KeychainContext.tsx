@@ -1,5 +1,5 @@
 import { createContext, FC, useContext } from "react"
-import { Keychain } from "./Keychain"
+import { Keychain } from "../Keychain"
 
 const KeychainContext = createContext<null | Keychain>(null)
 

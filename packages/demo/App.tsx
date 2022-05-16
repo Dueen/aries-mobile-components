@@ -20,7 +20,7 @@ const App = () => {
         console.error(e)
       }
     })()
-  }, [])
+  }, [keychain])
 
   return (
     <View style={styles.container}>
