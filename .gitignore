@@ -1,5 +1,4 @@
 node_modules
-yarn.lock
 yarn-error.log
 .DS_Store
 packages/demo/.expo

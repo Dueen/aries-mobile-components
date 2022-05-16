@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react"
 import { Button, StyleSheet, View } from "react-native"
-import { KeychainProvider, useKeychain } from "./packages/keychain"
-import { QrScanner } from "./packages/qrscanner"
+import { KeychainProvider, useKeychain } from "@animo-id/react-native-keychain"
+import { QrScanner } from "@animo-id/react-native-qrscanner"
 
 const App = () => {
   const [shouldShowCamera, setShouldShowCamera] = useState(false)
