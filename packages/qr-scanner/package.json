@@ -1,5 +1,5 @@
 {
-  "name": "@animo-id/react-native-qrscanner",
+  "name": "@aries-components/qr-scanner",
   "version": "0.0.0",
   "main": "src/index.ts",
   "license": "MIT",

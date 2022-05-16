@@ -1,5 +1,5 @@
 {
-  "name": "@animo-id/react-native-keychain",
+  "name": "@aries-components/keychain",
   "version": "0.0.0",
   "main": "src/index.ts",
   "license": "MIT",

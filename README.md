@@ -1,6 +1,6 @@
-# @animo-id/mobile-components
+# Aries Mobile Components
 
-A couple of React Native components that will help you build a better wallet.
+React Native components that will help you build a better wallet.
 
 ## Requirements
 
@@ -12,15 +12,15 @@ every package should work fine.
 **yarn**
 
 ```sh
-yarn add @animo-id/react-native-qr-scanner
-yarn add @animo-id/react-native-keychain
+yarn add @aries-components/qr-scanner
+yarn add @aries-components/keychain
 ```
 
 **npm**
 
 ```sh
-npm install @animo-id/react-native-qr-scanner
-npm install @animo-id/react-native-keychain
+npm install @aries-components/qr-scanner
+npm install @aries-components/keychain
 ```
 
 ### QrScanner
@@ -31,6 +31,8 @@ Please check the documentation inside the component for more information.
 #### Usage
 
 ```tsx
+import { QrScanner } from "@aries-components/qr-scanner"
+
 export const CustomScanner = () => {
   const onScan = console.log
   const onCancel = () => console.log("navigate back!")
@@ -48,6 +50,8 @@ In order to use `useKeychain` the outer component MUST be wrapped inside a `<Key
 #### Usage
 
 ```tsx
+import { KeychainProvider, useKeychain } from "@aries-components/keychain"
+
 const Wrapped = () => (
   <KeychainProvider service="mock_service">
     <App />
