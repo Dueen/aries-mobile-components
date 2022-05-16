@@ -9,7 +9,7 @@ type WithRequired<T, K extends keyof T> = T & { [P in K]-?: T[P] }
 type KeychainProps = WithRequired<RNKeychain.Options, "service">
 
 /**
- * simple class to interact with the keychain about your agent
+ * simple class to interact with the keychain about your wallet key
  *
  * @remarks
  * The accessControl, enabling biometrics, is currently broken in iOS 15
@@ -36,7 +36,7 @@ export class Keychain {
   }
 
   /**
-   * Set the agent wallet key
+   * Set the wallet key
    * This uses {@link https://github.com/P-H-C/phc-winner-argon2/blob/master/argon2-specs.pdf Argon2} for key derivation
    *
    * @remarks
@@ -46,18 +46,18 @@ export class Keychain {
    *
    * @param key - the simple password supplied by the user
    */
-  public async setAgentKey(key: string) {
-    const walletKey = await this.getWalletKey(key)
+  public async setWalletKey(key: string) {
+    const walletKey = await this.deriveWalletKey(key)
     return RNKeychain.setGenericPassword(this.service, walletKey, this.options)
   }
 
   /**
-   * Get the agent wallet key
+   * Get the wallet key
    *
    * @returns The password if it can be found
    * @returns False if the key could not be found for any reason
    */
-  public async getAgentKey(): Promise<string | false> {
+  public async getWalletKey(): Promise<string | false> {
     try {
       const walletKey = await RNKeychain.getGenericPassword(this.options)
       return walletKey ? walletKey.password : false
@@ -67,13 +67,13 @@ export class Keychain {
   }
 
   /**
-   * Resets the agent wallet key and its salt
+   * Resets the wallet key and its salt
    *
    * @param shouldResetSalt - Whether it should also reset the salt used
    *
    * @returns Promise<boolean> indicating if the reset was successful
    */
-  public resetAgentKey(shouldResetSalt = true) {
+  public resetWalletKey(shouldResetSalt = true) {
     if (shouldResetSalt) {
       store.delete("salt")
       this.setSalt()
@@ -97,7 +97,7 @@ export class Keychain {
    *
    * @param {string} password - The string value of the password
    */
-  public async getWalletKey(password: string) {
+  private async deriveWalletKey(password: string) {
     const salt = this.getSalt()
     const { rawHash } = await argon2(password, salt, { mode: "argon2i" })
     console.log("r", rawHash)
@@ -114,7 +114,7 @@ export class Keychain {
     const salt = store.getString("salt")
     if (!salt)
       throw new Error(
-        "No salt has been set during the initialization of the keychain. Make sure it is wrapped inside a KeychainProvider. \n If this occurs after calling `resetAgentKey, make sure to call `useKeychain` again."
+        "No salt has been set during the initialization of the keychain. Make sure it is wrapped inside a KeychainProvider. \n If this occurs after calling `resetWalletKey, make sure to call `useKeychain` again."
       )
     return salt
   }

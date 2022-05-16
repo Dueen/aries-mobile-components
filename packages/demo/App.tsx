@@ -14,8 +14,8 @@ const App = () => {
   useEffect(() => {
     void (async () => {
       try {
-        await keychain.setAgentKey("password123")
-        console.log(await keychain.getAgentKey())
+        await keychain.setWalletKey("password123")
+        console.log(await keychain.getWalletKey())
       } catch (e) {
         console.error(e)
       }
