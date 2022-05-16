@@ -43,7 +43,7 @@ export const CustomScanner = () => {
 
 A simple package that allows you to use secure storage to set and get a Key
 
-In order to use `useKeychain` the outer component MUST be wrapped inside a `<KeychainProvider />
+In order to use `useKeychain` the outer component MUST be wrapped inside a `<KeychainProvider />`
 
 #### Usage
 
