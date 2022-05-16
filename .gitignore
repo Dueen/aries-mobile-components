@@ -1,7 +1,7 @@
 node_modules
 yarn-error.log
 .DS_Store
-packages/demo/.expo
+.expo
 packages/demo/.expo-shared
 packages/demo/ios
 packages/demo/android
