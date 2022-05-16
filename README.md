@@ -48,9 +48,11 @@ In order to use `useKeychain` the outer component MUST be wrapped inside a `<Key
 #### Usage
 
 ```tsx
-;<KeychainProvider service="mock_service">
-  <App />
-</KeychainProvider>
+const Wrapped = () => (
+  <KeychainProvider service="mock_service">
+    <App />
+  </KeychainProvider>
+)
 
 // ...
 
