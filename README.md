@@ -4,7 +4,7 @@ A couple of React Native components that will help you build a better wallet.
 
 ## Requirements
 
-These components have been tested against React Native `0.66.x` and 0.68.x`. Different minimum versions apply for different packages. But above `0.64.x`
+These components have been tested against React Native `0.66.x` and `0.68.x`. Different minimum versions apply for different packages. But above `0.64.x`
 every package should work fine.
 
 ## Installation
