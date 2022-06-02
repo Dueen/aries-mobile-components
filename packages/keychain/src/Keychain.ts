@@ -108,8 +108,6 @@ export class Keychain {
   private async deriveWalletKey(password: string) {
     const salt = this.getSalt()
     const { rawHash } = await argon2(password, salt, { mode: 'argon2i' })
-    console.log('r', rawHash)
-    console.log('s', salt)
     return rawHash
   }
 

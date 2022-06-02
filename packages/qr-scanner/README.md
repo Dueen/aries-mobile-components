@@ -20,10 +20,16 @@ npm install @aries-components/qr-scanner
 #### Usage
 
 ```tsx
+import React from 'react'
 import { QrScanner } from '@aries-components/qr-scanner'
 
 export const CustomScanner = () => {
-  const onScan = console.log
+  // This callback will be called with a string from whatever the QR scanner
+  // scanned.
+  const onScan = (result: string) => console.log(`Result: ${result}`)
+
+  // This callback will be called when the user presses the `cancel` button
+  // It is common practise to hide the view here or navigate back
   const onCancel = () => console.log('navigate back!')
 
   return <QrScanner onScan={onScan} onCancel={onCancel} />
