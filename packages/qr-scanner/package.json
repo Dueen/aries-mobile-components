@@ -1,8 +1,22 @@
 {
   "name": "@aries-components/qr-scanner",
+  "description": "Qr scanner specifically designed for Aries",
+  "homepage": "https://github.com/animo/mobile-components",
+  "repository": {
+    "url": "https:://github.com/animo/mobile-components",
+    "type": "git",
+    "directory": "packages/qr-scanner"
+  },
   "version": "0.0.0",
-  "main": "lib/index.js",
-  "license": "MIT",
+  "license": "Apache-2.0",
+  "main": "build/index",
+  "types": "build/index",
+  "files": [
+    "build"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
   "scripts": {
     "check-types": "tsc --noemit -p tsconfig.build.json",
     "check-format": "yarn prettier --check",

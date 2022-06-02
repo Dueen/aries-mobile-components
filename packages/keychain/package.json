@@ -1,10 +1,24 @@
 {
   "name": "@aries-components/keychain",
+  "description": "Keychain interaction specifically designed for Aries",
+  "homepage": "https://github.com/animo/mobile-components",
+  "repository": {
+    "url": "https:://github.com/animo/mobile-components",
+    "type": "git",
+    "directory": "packages/keychain"
+  },
   "version": "0.0.0",
-  "main": "lib/index.js",
-  "license": "MIT",
+  "license": "Apache-2.0",
+  "main": "build/index",
+  "types": "build/index",
+  "files": [
+    "build"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
   "scripts": {
-    "check-types": "tsc --noEmit -p tsconfig.build.json",
+    "check-types": "tsc --noemit -p tsconfig.build.json",
     "check-format": "yarn prettier --check",
     "prettier": "prettier --ignore-path .gitignore '**/*.+(js|json|ts|md|yml|yaml)'",
     "format": "yarn prettier --write",

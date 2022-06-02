@@ -52,7 +52,12 @@ export class Keychain {
    *
    * The performance should not be an issue, but if it is, switching to `argon2d` is an option
    *
+   * @remarks
+   * This function will trigger the biometrics if these are enabled on the device
+   *
    * @param key - the simple password supplied by the user
+   *
+   * @returns Promise<boolean | Result> indicating with false if it was not set and Result when it went correctly
    */
   public async setWalletKey(key: string) {
     const walletKey = await this.deriveWalletKey(key)
@@ -61,6 +66,9 @@ export class Keychain {
 
   /**
    * Get the wallet key
+   *
+   * @remarks
+   * This function will trigger the biometrics if these are enabled on the device
    *
    * @returns The password if it can be found
    * @returns False if the key could not be found for any reason
@@ -101,7 +109,7 @@ export class Keychain {
   }
 
   /**
-   * Get the wallet key by password
+   * Derive the password
    *
    * @param {string} password - The string value of the password
    */
