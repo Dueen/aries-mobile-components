@@ -7,13 +7,13 @@ Please check the documentation inside the component for more information.
 
 **yarn**
 
-```sh
+```console
 yarn add @aries-components/qr-scanner
 ```
 
 **npm**
 
-```sh
+```console
 npm install @aries-components/qr-scanner
 ```
 

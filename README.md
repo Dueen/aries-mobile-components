@@ -13,14 +13,14 @@ every package should work fine.
 
 **yarn**
 
-```sh
+```console
 yarn add @aries-components/qr-scanner
 yarn add @aries-components/keychain
 ```
 
 **npm**
 
-```sh
+```console
 npm install @aries-components/qr-scanner
 npm install @aries-components/keychain
 ```

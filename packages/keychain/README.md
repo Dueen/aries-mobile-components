@@ -8,13 +8,13 @@ In order to use `useKeychain` the outer component MUST be wrapped inside a `<Key
 
 **yarn**
 
-```sh
+```console
 yarn add @aries-components/keychain
 ```
 
 **npm**
 
-```sh
+```console
 npm install @aries-components/keychain
 ```
 
