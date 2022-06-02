@@ -85,3 +85,24 @@ const myDerivedPassword = await keychain.getWalletKey()
 // Accepts a boolean whether to reset the salt used in the key derivation
 keychain.resetWalletKey(false)
 ```
+
+### Storybook
+
+In order to test the user-interface components of this repository, a storybook
+has been setup. This allows everyone to test changes to components as much as
+possible.
+
+#### Testing
+
+To test the components run the following commands:
+
+```console
+cd demo
+
+yarn
+
+yarn ios
+
+# In a new terminal
+yarn storybook-watcher
+```
