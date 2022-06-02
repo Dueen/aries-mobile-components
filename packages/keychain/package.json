@@ -1,13 +1,23 @@
 {
   "name": "@aries-components/keychain",
   "version": "0.0.0",
-  "main": "src/index.ts",
+  "main": "lib/index.js",
   "license": "MIT",
+  "scripts": {
+    "check-types": "tsc --noEmit -p tsconfig.build.json",
+    "check-format": "yarn prettier --check",
+    "prettier": "prettier --ignore-path .gitignore '**/*.+(js|json|ts|md|yml|yaml)'",
+    "format": "yarn prettier --write",
+    "build": "yarn clean && yarn compile",
+    "clean": "rimraf -rf ./lib",
+    "compile": "tsc -p tsconfig.build.json",
+    "release": "release-it"
+  },
   "dependencies": {
-    "react-native-get-random-values": "^1.8.0",
-    "react-native-keychain": "^8.0.0",
-    "react-native-argon2": "^2.0.1",
-    "react-native-mmkv": "^2.4.1"
+    "react-native-get-random-values": "1.8.0",
+    "react-native-keychain": "8.0.0",
+    "react-native-argon2": "2.0.1",
+    "react-native-mmkv": "2.4.1"
   },
   "peerDependencies": {
     "react-native": ">= 0.64.0",

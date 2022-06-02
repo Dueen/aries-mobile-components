@@ -1,12 +1,12 @@
-import * as RNKeychain from "react-native-keychain"
-import argon2 from "react-native-argon2"
-import { MMKV } from "react-native-mmkv"
+import * as RNKeychain from "react-native-keychain";
+import argon2 from "react-native-argon2";
+import { MMKV } from "react-native-mmkv";
 
-const store = new MMKV()
+const store = new MMKV();
 
-type WithRequired<T, K extends keyof T> = T & { [P in K]-?: T[P] }
+type WithRequired<T, K extends keyof T> = T & { [P in K]-?: T[P] };
 
-type KeychainProps = WithRequired<RNKeychain.Options, "service">
+type KeychainProps = WithRequired<RNKeychain.Options, "service">;
 
 /**
  * simple class to interact with the keychain about your wallet key
@@ -15,8 +15,8 @@ type KeychainProps = WithRequired<RNKeychain.Options, "service">
  * The accessControl, enabling biometrics, is currently broken in iOS 15
  */
 export class Keychain {
-  private service: string
-  private options: RNKeychain.Options
+  private service: string;
+  private options: RNKeychain.Options;
 
   public constructor({
     service,
@@ -27,9 +27,17 @@ export class Keychain {
     authenticationType = RNKeychain.AUTHENTICATION_TYPE.BIOMETRICS,
     accessible = RNKeychain.ACCESSIBLE.WHEN_UNLOCKED,
   }: KeychainProps) {
-    this.setSalt()
-    this.service = service
-    this.options = { service, accessControl, securityLevel, storage, rules, authenticationType, accessible }
+    this.setSalt();
+    this.service = service;
+    this.options = {
+      service,
+      accessControl,
+      securityLevel,
+      storage,
+      rules,
+      authenticationType,
+      accessible,
+    };
     // TODO: AccessControl breaks it
     // - related issue: https://github.com/oblador/react-native-keychain/issues/509
     // this.options = { service, securityLevel, storage, rules, authenticationType, accessible }
@@ -47,8 +55,8 @@ export class Keychain {
    * @param key - the simple password supplied by the user
    */
   public async setWalletKey(key: string) {
-    const walletKey = await this.deriveWalletKey(key)
-    return RNKeychain.setGenericPassword(this.service, walletKey, this.options)
+    const walletKey = await this.deriveWalletKey(key);
+    return RNKeychain.setGenericPassword(this.service, walletKey, this.options);
   }
 
   /**
@@ -59,10 +67,10 @@ export class Keychain {
    */
   public async getWalletKey(): Promise<string | false> {
     try {
-      const walletKey = await RNKeychain.getGenericPassword(this.options)
-      return walletKey ? walletKey.password : false
+      const walletKey = await RNKeychain.getGenericPassword(this.options);
+      return walletKey ? walletKey.password : false;
     } catch {
-      return false
+      return false;
     }
   }
 
@@ -75,10 +83,10 @@ export class Keychain {
    */
   public resetWalletKey(shouldResetSalt = true) {
     if (shouldResetSalt) {
-      store.delete("salt")
-      this.setSalt()
+      store.delete("salt");
+      this.setSalt();
     }
-    RNKeychain.resetGenericPassword(this.options)
+    RNKeychain.resetGenericPassword(this.options);
   }
 
   /**
@@ -87,9 +95,11 @@ export class Keychain {
    * @returns Promise<boolean> indicating if the device supports biometry unlock
    */
   public async supportsBiometryUnlock() {
-    const biometryType = await RNKeychain.getSupportedBiometryType(this.options)
+    const biometryType = await RNKeychain.getSupportedBiometryType(
+      this.options
+    );
 
-    return biometryType !== null
+    return biometryType !== null;
   }
 
   /**
@@ -98,11 +108,11 @@ export class Keychain {
    * @param {string} password - The string value of the password
    */
   private async deriveWalletKey(password: string) {
-    const salt = this.getSalt()
-    const { rawHash } = await argon2(password, salt, { mode: "argon2i" })
-    console.log("r", rawHash)
-    console.log("s", salt)
-    return rawHash
+    const salt = this.getSalt();
+    const { rawHash } = await argon2(password, salt, { mode: "argon2i" });
+    console.log("r", rawHash);
+    console.log("s", salt);
+    return rawHash;
   }
 
   /**
@@ -111,12 +121,12 @@ export class Keychain {
    * @throws When the salt could not be found
    */
   public getSalt() {
-    const salt = store.getString("salt")
+    const salt = store.getString("salt");
     if (!salt)
       throw new Error(
         "No salt has been set during the initialization of the keychain. Make sure it is wrapped inside a KeychainProvider. \n If this occurs after calling `resetWalletKey, make sure to call `useKeychain` again."
-      )
-    return salt
+      );
+    return salt;
   }
 
   /**
@@ -127,9 +137,9 @@ export class Keychain {
    */
   private setSalt() {
     try {
-      this.getSalt()
+      this.getSalt();
     } catch {
-      store.set("salt", crypto.getRandomValues(new Uint8Array(32)).join(""))
+      store.set("salt", crypto.getRandomValues(new Uint8Array(32)).join(""));
     }
   }
 }

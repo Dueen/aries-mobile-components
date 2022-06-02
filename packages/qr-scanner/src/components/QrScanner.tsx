@@ -1,7 +1,6 @@
 import type { BarCodeScanningResult } from "expo-camera"
-
+import React from "react"
 import BarcodeMask from "react-native-barcode-mask"
-
 import { Camera } from "./Camera"
 import { Pressable, View, Text, StyleSheet, StyleProp, TextStyle } from "react-native"
 
@@ -43,6 +42,9 @@ export const QrScanner: React.FunctionComponent<QrScannerOptions> = ({
 
   return (
     <Camera onBarCodeScanned={onBarCodeScanned}>
+      {/* We ignore as `BarcodeMask is not seen as a valid component, type-wise.
+          This is however not the case and works like how it is supposed to. */}
+      {/* @ts-ignore */}
       <BarcodeMask showAnimatedLine={false} edgeBorderWidth={0} height={280} />
       <View style={styles.container}>
         <View style={styles.headerContainer}>

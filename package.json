@@ -4,5 +4,8 @@
   "version": "1.0.0",
   "workspaces": [
     "packages/*"
-  ]
+  ],
+  "devDependencies": {
+    "prettier": "2.6.2"
+  }
 }

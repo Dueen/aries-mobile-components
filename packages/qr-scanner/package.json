@@ -1,12 +1,22 @@
 {
   "name": "@aries-components/qr-scanner",
   "version": "0.0.0",
-  "main": "src/index.ts",
+  "main": "lib/index.js",
   "license": "MIT",
+  "scripts": {
+    "check-types": "tsc --noemit -p tsconfig.build.json",
+    "check-format": "yarn prettier --check",
+    "prettier": "prettier --ignore-path .gitignore '**/*.+(js|json|ts|md|yml|yaml)'",
+    "format": "yarn prettier --write",
+    "build": "yarn clean && yarn compile",
+    "clean": "rimraf -rf ./lib",
+    "compile": "tsc -p tsconfig.build.json",
+    "release": "release-it"
+  },
   "dependencies": {
-    "react-native-barcode-mask": "^1.2.4",
-    "expo-barcode-scanner": "^11.3.0",
-    "expo-camera": "^12.2.0"
+    "react-native-barcode-mask": "1.2.4",
+    "expo-barcode-scanner": "11.3.0",
+    "expo-camera": "12.2.0"
   },
   "peerDependencies": {
     "react-native": ">= 0.64.0",
