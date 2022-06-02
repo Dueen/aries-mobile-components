@@ -11,6 +11,9 @@ type KeychainProps = WithRequired<RNKeychain.Options, 'service'>
 /**
  * simple class to interact with the keychain about your wallet key
  *
+ * @todo fix the accessControl on iOS 15
+ * {@link https://github.com/oblador/react-native-keychain/issues/509 issue}
+ *
  * @remarks
  * The accessControl, enabling biometrics, is currently broken in iOS 15
  */
@@ -38,8 +41,6 @@ export class Keychain {
       authenticationType,
       accessible,
     }
-    // TODO: AccessControl breaks it
-    // - related issue: https://github.com/oblador/react-native-keychain/issues/509
     // this.options = { service, securityLevel, storage, rules, authenticationType, accessible }
   }
 

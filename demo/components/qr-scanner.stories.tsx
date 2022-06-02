@@ -9,6 +9,12 @@ const QrScannerMeta: ComponentMeta<typeof QrScanner> = {
   argTypes: {
     onScan: { action: 'Scanned the QR code' },
     onCancel: { action: 'Cancelled the QR scanner' },
+    cancelText: { description: 'Displayed text at the cancel button' },
+    cancelStyle: { description: 'Styles of the cancelText' },
+    headerText: { description: 'text that can be displayed above the barcode mask' },
+    headerStyle: {
+      description: 'Style of the headerText',
+    },
   },
   args: {
     basic: {
