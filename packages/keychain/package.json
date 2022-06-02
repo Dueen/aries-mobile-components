@@ -10,8 +10,7 @@
     "format": "yarn prettier --write",
     "build": "yarn clean && yarn compile",
     "clean": "rimraf -rf ./lib",
-    "compile": "tsc -p tsconfig.build.json",
-    "release": "release-it"
+    "compile": "tsc -p tsconfig.build.json"
   },
   "dependencies": {
     "react-native-get-random-values": "1.8.0",

@@ -5,6 +5,15 @@
   "workspaces": [
     "packages/*"
   ],
+  "scripts": {
+    "check-types": "tsc --noEmit -p tsconfig.build.json",
+    "check-format": "yarn prettier --check",
+    "prettier": "prettier --ignore-path .gitignore '**/*.+(js|json|ts|md|yml|yaml)'",
+    "format": "yarn prettier --write",
+    "build": "yarn clean && yarn compile",
+    "clean": "rimraf -rf ./lib",
+    "compile": "tsc -p tsconfig.build.json"
+  },
   "devDependencies": {
     "prettier": "2.6.2"
   }

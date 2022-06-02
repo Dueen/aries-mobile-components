@@ -20,12 +20,12 @@ npm install @aries-components/qr-scanner
 #### Usage
 
 ```tsx
-import { QrScanner } from "@aries-components/qr-scanner";
+import { QrScanner } from '@aries-components/qr-scanner'
 
 export const CustomScanner = () => {
-  const onScan = console.log;
-  const onCancel = () => console.log("navigate back!");
+  const onScan = console.log
+  const onCancel = () => console.log('navigate back!')
 
-  return <QrScanner onScan={onScan} onCancel={onCancel} />;
-};
+  return <QrScanner onScan={onScan} onCancel={onCancel} />
+}
 ```

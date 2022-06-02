@@ -31,11 +31,11 @@ Please check the documentation inside the component for more information.
 #### Usage
 
 ```tsx
-import { QrScanner } from "@aries-components/qr-scanner"
+import { QrScanner } from '@aries-components/qr-scanner'
 
 export const CustomScanner = () => {
   const onScan = console.log
-  const onCancel = () => console.log("navigate back!")
+  const onCancel = () => console.log('navigate back!')
 
   return <QrScanner onScan={onScan} onCancel={onCancel} />
 }
@@ -50,7 +50,7 @@ In order to use `useKeychain` the outer component MUST be wrapped inside a `<Key
 #### Usage
 
 ```tsx
-import { KeychainProvider, useKeychain } from "@aries-components/keychain"
+import { KeychainProvider, useKeychain } from '@aries-components/keychain'
 
 const Wrapped = () => (
   <KeychainProvider service="mock_service">
@@ -64,7 +64,7 @@ const Wrapped = () => (
 const keychain = useKeychain()
 
 // Set your wallet key in the secure storage
-await keychain.setwalletKey("my-custom-password") // This will be derived with argon2i for security
+await keychain.setwalletKey('my-custom-password') // This will be derived with argon2i for security
 
 // Get your wallet key from secure storage
 const myDerivedPassword = await keychain.getwalletKey()
