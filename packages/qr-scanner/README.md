@@ -1,7 +1,11 @@
 # @aries-components/qr-scanner
 
-This is a simple camera view, with barcode cut-out, to scan qrcodes. It uses `expo-camera` under the hood and is customizable.
-Please check the documentation inside the component for more information.
+> TODO: this depends on an Alpha version of `@aries-framework/core`, this MUST
+> be updated when `@aries-framework/core` is stable on 0.2.0.
+
+This is a simple camera view, with barcode cut-out, to scan qrcodes. It uses
+`expo-camera` under the hood and is customizable. Please check the
+documentation inside the component for more information.
 
 ## Installation
 
