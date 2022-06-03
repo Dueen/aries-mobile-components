@@ -1,35 +1,25 @@
-![image](https://user-images.githubusercontent.com/3481514/145904252-92e3dc1e-591f-410f-88a1-b4250f4ba6f2.png)
+# Storybook application for the Aries Mobile Components
 
-# getting started
+This application is created for the purpose of testing the components. When
+creating a new component, a story has to be added so we can test the props and
+how they interact with the component.
 
+## getting started
+
+1. Install the dependencies
+
+```console
+yarn
 ```
-expo init --template expo-template-storybook AwesomeStorybook
-```
 
-# Ondevice
+2. Launch the application
 
-```
+```console
 yarn start
 ```
 
-If you add new stories on the native (ondevice version) you either need to have the watcher running or run the stories loader.
+3. Listen for storybook changes
 
-To update the stories one time:
-
-```
-yarn update-stories
-```
-
-To watch the stories files:
-
-```
+```console
 yarn storybook-watcher
-```
-
-Note that this is only necessary for when you add or remove a story file.
-
-# Web
-
-```
-yarn storybook
 ```
