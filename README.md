@@ -14,14 +14,14 @@ every package should work fine.
 **yarn**
 
 ```console
-yarn add @aries-components/qr-scanner
+yarn add @aries-components/expo-qr-scanner
 yarn add @aries-components/keychain
 ```
 
 **npm**
 
 ```console
-npm install @aries-components/qr-scanner
+npm install @aries-components/expo-qr-scanner
 npm install @aries-components/keychain
 ```
 
@@ -34,7 +34,7 @@ Please check the documentation inside the component for more information.
 
 ```tsx
 import React from 'react'
-import { QrScanner } from '@aries-components/qr-scanner'
+import { QrScanner } from '@aries-components/expo-qr-scanner'
 
 export const CustomScanner = () => {
   // This callback will be called with a string from whatever the QR scanner
@@ -84,4 +84,25 @@ const myDerivedPassword = await keychain.getWalletKey()
 // Reset your wallet key
 // Accepts a boolean whether to reset the salt used in the key derivation
 keychain.resetWalletKey(false)
+```
+
+### Storybook
+
+In order to test the user-interface components of this repository, a storybook
+has been setup. This allows everyone to test changes to components as much as
+possible.
+
+#### Testing
+
+To test the components run the following commands:
+
+```console
+cd demo
+
+yarn
+
+yarn ios
+
+# In a new terminal
+yarn storybook-watcher
 ```

@@ -10,9 +10,11 @@
   "version": "0.0.0",
   "license": "Apache-2.0",
   "main": "build/index",
+  "source": "src/index",
   "types": "build/index",
   "files": [
-    "build"
+    "build",
+    "src"
   ],
   "publishConfig": {
     "access": "public"

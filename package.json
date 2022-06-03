@@ -3,7 +3,8 @@
   "name": "monorepo",
   "version": "1.0.0",
   "workspaces": [
-    "packages/*"
+    "packages/*",
+    "demo"
   ],
   "scripts": {
     "check-types": "tsc --noEmit -p tsconfig.build.json",
