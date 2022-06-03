@@ -4,7 +4,7 @@ import { QrScanner } from '@aries-components/expo-qr-scanner'
 import { action } from '@storybook/addon-actions'
 
 const QrScannerMeta: ComponentMeta<typeof QrScanner> = {
-  title: 'QrScanner',
+  title: 'ExpoQrScanner',
   component: QrScanner,
   argTypes: {
     onScan: { action: 'Scanned the QR code' },
