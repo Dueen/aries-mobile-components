@@ -14,14 +14,14 @@ every package should work fine.
 **yarn**
 
 ```console
-yarn add @aries-components/qr-scanner
+yarn add @aries-components/expo-qr-scanner
 yarn add @aries-components/keychain
 ```
 
 **npm**
 
 ```console
-npm install @aries-components/qr-scanner
+npm install @aries-components/expo-qr-scanner
 npm install @aries-components/keychain
 ```
 
@@ -34,7 +34,7 @@ Please check the documentation inside the component for more information.
 
 ```tsx
 import React from 'react'
-import { QrScanner } from '@aries-components/qr-scanner'
+import { QrScanner } from '@aries-components/expo-qr-scanner'
 
 export const CustomScanner = () => {
   // This callback will be called with a string from whatever the QR scanner

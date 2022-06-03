@@ -1,6 +1,6 @@
 import React from 'react'
 import { ComponentStory, ComponentMeta } from '@storybook/react-native'
-import { QrScanner } from '@aries-components/qr-scanner'
+import { QrScanner } from '@aries-components/expo-qr-scanner'
 import { action } from '@storybook/addon-actions'
 
 const QrScannerMeta: ComponentMeta<typeof QrScanner> = {

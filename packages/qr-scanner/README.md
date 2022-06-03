@@ -1,4 +1,4 @@
-# @aries-components/qr-scanner
+# @aries-components/expo-qr-scanner
 
 > TODO: this depends on an Alpha version of `@aries-framework/core`, this MUST
 > be updated when `@aries-framework/core` is stable on 0.2.0.
@@ -12,20 +12,20 @@ documentation inside the component for more information.
 **yarn**
 
 ```console
-yarn add @aries-components/qr-scanner
+yarn add @aries-components/expo-qr-scanner
 ```
 
 **npm**
 
 ```console
-npm install @aries-components/qr-scanner
+npm install @aries-components/expo-qr-scanner
 ```
 
 #### Usage
 
 ```tsx
 import React from 'react'
-import { QrScanner } from '@aries-components/qr-scanner'
+import { QrScanner } from '@aries-components/expo-qr-scanner'
 
 export const CustomScanner = () => {
   // This callback will be called with a string from whatever the QR scanner
