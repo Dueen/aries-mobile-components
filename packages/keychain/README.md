@@ -1,5 +1,15 @@
 # @aries-components/keychain
 
+---
+
+iOS 15, simulator and device, is not supported right now. Related issue is
+[here](https://github.com/oblador/react-native-keychain/issues/510) and apple
+developer forum link is
+[here](https://developer.apple.com/forums/thread/685773). Pull requests for
+fixes for this are much appriciated!
+
+---
+
 A simple package that allows you to use secure storage to set and get a Key
 
 In order to use `useKeychain` the outer component MUST be wrapped inside a `<KeychainProvider />`
