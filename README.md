@@ -1,5 +1,15 @@
 # Aries Mobile Components
 
+---
+
+Keychain iOS 15, simulator and device, is not supported right now. Related
+issue is [here](https://github.com/oblador/react-native-keychain/issues/510)
+and apple developer forum link is
+[here](https://developer.apple.com/forums/thread/685773). Pull requests for
+fixes for this are much appriciated!
+
+---
+
 > TODO: this should be removed and just link to the docs website
 
 React Native components that will help you build a better wallet.
