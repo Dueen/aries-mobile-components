@@ -9,4 +9,4 @@ const NoPermissionComponent = () => {
   )
 }
 
-export default NoPermissionComponent
+export default NoPermissionComponent;
