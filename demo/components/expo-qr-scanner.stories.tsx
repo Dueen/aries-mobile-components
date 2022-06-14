@@ -1,4 +1,5 @@
 import React from 'react'
+import NoPermissionComponent from './NoPermissionComponent'
 import { ComponentStory, ComponentMeta } from '@storybook/react-native'
 import { QrScanner } from '@aries-components/expo-qr-scanner'
 import { action } from '@storybook/addon-actions'
@@ -15,6 +16,7 @@ const QrScannerMeta: ComponentMeta<typeof QrScanner> = {
     headerStyle: {
       description: 'Style of the headerText',
     },
+    renderNoPermission: { description: "Custom Component to display when permission is not granted" },
   },
   args: {
     basic: {
@@ -28,6 +30,7 @@ const QrScannerMeta: ComponentMeta<typeof QrScanner> = {
       cancelStyle: { color: 'blue', fontSize: 20 },
       headerText: 'Custom header text',
       headerStyle: { color: 'pink', fontSize: 25 },
+      renderNoPermission: NoPermissionComponent,
     },
   },
 }

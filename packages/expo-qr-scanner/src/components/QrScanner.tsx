@@ -15,6 +15,7 @@ type QrScannerOptions = {
   headerText?: string
   headerStyle?: StyleProp<TextStyle>
   cancelStyle?: StyleProp<TextStyle>
+  renderNoPermission?: () => React.ReactNode
 }
 
 /**
@@ -30,6 +31,7 @@ type QrScannerOptions = {
  * @param headerText - Text displayed at the top of the QrScanner
  * @param cancelStyle - Custom styling for the text inside the cancel button
  * @param headerStyle - Custom styling for the header text
+ * @param renderNoPermission - Custom Component to display when permission is not granted
  *
  */
 export const QrScanner: React.FunctionComponent<QrScannerOptions> = ({
@@ -39,6 +41,7 @@ export const QrScanner: React.FunctionComponent<QrScannerOptions> = ({
   headerText,
   cancelStyle,
   headerStyle,
+  renderNoPermission,
 }) => {
   const onBarCodeScanned = async ({ data }: BarCodeScanningResult) => {
     // get the read string
@@ -60,7 +63,7 @@ export const QrScanner: React.FunctionComponent<QrScannerOptions> = ({
   }
 
   return (
-    <Camera onBarCodeScanned={onBarCodeScanned}>
+    <Camera onBarCodeScanned={onBarCodeScanned} renderNoPermission={renderNoPermission}>
       {/* We ignore as `BarcodeMask is not seen as a valid component, type-wise.
           This is however not the case and works like how it is supposed to. */}
       {/* @ts-ignore */}

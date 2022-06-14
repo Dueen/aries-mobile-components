@@ -4,9 +4,12 @@ import { Platform, StyleProp, ViewStyle } from 'react-native'
 
 import { Camera as ExpoCamera, PermissionStatus } from 'expo-camera'
 import React, { forwardRef, useRef } from 'react'
-import { Text, Dimensions, StyleSheet } from 'react-native'
+import { Text, Dimensions, StyleSheet, View } from 'react-native'
 
-export const Camera = forwardRef<ExpoCamera, PropsWithChildren<ExpoCameraProps>>((props, ref) => {
+type ExtendedExpoCameraProps = ExpoCameraProps & { renderNoPermission?: () => React.ReactNode }
+
+export const Camera = forwardRef<ExpoCamera, PropsWithChildren<ExtendedExpoCameraProps>>((props, ref) => {
+  const { renderNoPermission = () => <Text>No permissions granted</Text> } = props;
   const [permissionResponse] = ExpoCamera.useCameraPermissions({
     get: true,
     request: true,
@@ -20,7 +23,7 @@ export const Camera = forwardRef<ExpoCamera, PropsWithChildren<ExpoCameraProps>>
   }
 
   if (permissionResponse.status !== PermissionStatus.GRANTED) {
-    return <Text>No permissions granted</Text>
+    return <View>{renderNoPermission()}</View>;
   }
 
   // Android has issues with aspect ratio
